@@ -18,9 +18,9 @@ const menuItem = [
     }
     ,
     {
-        path: '/dashboard/pokemons',
+        path: '/dashboard/pokemon',
         icon: <IoFootball />,
-        title: 'Pokemons',
+        title: 'Pokemon',
         subtitle: 'generacion estatica'
     }
 ]
