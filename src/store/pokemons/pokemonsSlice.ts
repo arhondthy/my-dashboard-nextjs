@@ -1,12 +1,18 @@
 import { simplePokemon } from '@/pokemons';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-interface PokeFavoriteState {
-    [key: string]: simplePokemon,
+interface PokemonsState {
+    [key: string]: simplePokemon
 }
 
-const initialState = {
-    '1': { id: '1', name: 'bulbasour' }
+const getInitialState = (): PokemonsState => {
+    const favorites = JSON.parse(localStorage.getItem('favorites') ?? '{}');
+    console.log(favorites);
+    return favorites;
+}
+
+const initialState: PokemonsState = {
+    ...getInitialState,
 }
 
 const pokemonsSlice = createSlice({
@@ -18,10 +24,13 @@ const pokemonsSlice = createSlice({
             const { id } = pokemon;
             if (!!state[id]) {
                 delete state[id];
-                return
+                //  return
+            } else {
+                state[id] = pokemon;
             }
 
-            state[id] = pokemon;
+
+
         }
     }
 });
