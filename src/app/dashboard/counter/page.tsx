@@ -12,7 +12,7 @@ const counterPage = () => {
     return (
         <div className='flex flex-col items-center justify-center w-full h-full'>
             <span>Productos en carrito</span>
-            <CartCounter value={20} />
+            <CartCounter />
 
         </div>
     )
